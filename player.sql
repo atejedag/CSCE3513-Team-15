@@ -1,6 +1,4 @@
 
---USE scratch_DB;
-
 DROP TABLE IF EXISTS player;
 
 --Create table
@@ -15,4 +13,7 @@ CREATE TABLE player (
 INSERT INTO player (id, first_name, last_name, codename)
 VALUES (1, 'Jim', 'Strother', 'Opus');
 INSERT INTO player (id, first_name, last_name, codename)
-VALUES (2, 'William', 'James', 'Alpha');
+VALUES (2, 'James', 'William', 'Alpha');
+
+select * from player;
+
