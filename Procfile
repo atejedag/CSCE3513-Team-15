@@ -1,1 +1,1 @@
-web: gunicorn <group-15>:<LaserTagSystem.java>
+web: <group-15>:<LaserTagSystem.java>
