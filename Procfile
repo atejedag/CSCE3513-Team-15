@@ -1,1 +1,1 @@
-web: java -cp src/classes/:src/dependency/* LaserTagSystem.java
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/CSCE3513-Team-15-0.0.1-SNAPSHOT.jar
