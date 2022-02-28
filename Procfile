@@ -1,1 +1,1 @@
-web: java LaserTagSystem
+web: java src/main/java/LaserTagSystem
