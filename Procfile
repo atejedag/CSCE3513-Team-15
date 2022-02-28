@@ -1,1 +1,1 @@
-web: <group-15>:<LaserTagSystem.java>
+web: bundle exec java LaserTagSystem.java -p $PORT
