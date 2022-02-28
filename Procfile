@@ -1,1 +1,1 @@
-web: java -cp target/classes/:target/dependency/* LaserTagSystem.java
+web: java -cp LaserTagSystem.java
