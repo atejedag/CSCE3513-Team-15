@@ -4,13 +4,15 @@
 
 import javax.swing.JFrame;
 import java.awt.Toolkit;
+import java.sql.Connection;
 
 public class LaserTagSystem extends JFrame
 {
 	// Class members
-	Model model = new Model();
-	Controller controller = new Controller(model);
-	View view = new View(controller, model);
+	static DatabaseConnection dbc = new DatabaseConnection();
+	static Model model = new Model(dbc);
+	static Controller controller = new Controller(model);
+	static View view = new View(controller, model);
 	
 	// Constructor
 	public LaserTagSystem()
@@ -56,6 +58,18 @@ public class LaserTagSystem extends JFrame
 			splashScreen.dispose(); // release all resources and stop displaying
 		} catch(Exception e) {
 			e.printStackTrace();
+		}
+		
+		// Test DB Connection
+		try{
+			Class.forName("org.postgresql.Driver");
+			Connection conn = dbc.getConnection();
+			model.setConnection(conn);
+			System.out.println("Connected to database");
+		}
+		catch(Exception ex){
+			System.out.println("Failed to connect to database");
+			ex.printStackTrace();
 		}
 		
 		// Run program

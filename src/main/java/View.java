@@ -106,6 +106,21 @@ class View extends JPanel
 		});
 		entryPanel.add(playerb);
 		super.add(entryPanel, constraints);
+		
+		// Upload all players to database button
+		constraints.gridy = 6;
+		JPanel uploadPanel = new JPanel();
+		JButton uploadb = new JButton("Upload Players to Database");
+		uploadb.addActionListener(new ActionListener()
+		{
+			// Indirectly call database connection function
+			public void actionPerformed(ActionEvent e)
+			{
+				model.modelPlayersInsert();
+			}
+		});
+		uploadPanel.add(uploadb);
+		super.add(uploadPanel, constraints);
 	}
 	
 	// TODO: Close player selection GUI

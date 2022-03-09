@@ -4,16 +4,20 @@
 // Notes:	Contains information about the laser tag system
 
 import java.util.ArrayList;
+import java.sql.Connection;
 
 class Model
 {
 	// Class members
 	ArrayList<Player> players;
+	DatabaseConnection dbc;
+	Connection conn;
 	
 	// Constructor
-	Model()
+	Model(DatabaseConnection DBC)
 	{
 		players = new ArrayList<Player>();
+		dbc = DBC;
 	}
 	
 	// Method to add player object to list
@@ -28,6 +32,19 @@ class Model
 		//	Player n = players.get(i);
 		//	System.out.println(n.first_name);
 		//}
+	}
+	
+	// Set database connection
+	public void setConnection(Connection CONN)
+	{
+		conn = CONN;
+	}
+	
+	// Call DatabaseConnection method to insert players into database
+	public void modelPlayersInsert()
+	{
+		dbc.insertPlayers(players, conn);
+		//players.clear();
 	}
 	
 	// Method to update model 

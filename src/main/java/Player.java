@@ -18,4 +18,24 @@ class Player
 		last_name = last;
 		code_name = code;
 	}
+	
+	public int getID()
+	{
+		return id;
+	}
+	
+	public String getFirst()
+	{
+		return first_name;
+	}
+	
+	public String getLast()
+	{
+		return last_name;
+	}
+	
+	public String getCode()
+	{
+		return code_name;
+	}
 }
