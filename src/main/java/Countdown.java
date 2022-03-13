@@ -1,3 +1,7 @@
+// Author: Team 15
+// Date: Spring 2022
+// Purpose: Countdown component of Software Engineering project
+
 import java.util.TimerTask;
 import java.util.Timer;
 import javax.swing.JLabel;
@@ -12,7 +16,10 @@ public class Countdown {
 		timer.scheduleAtFixedRate(new TimerTask(){
 			int i = N; // set time
 			public void run() {
-				J.setText("Time: "+ i);
+				if(i > 360)
+					J.setText("GAME STARTS IN " + (i - 360) + " SECONDS!");
+				else
+					J.setText("Seconds Remaining: "+ i);
 				//System.out.println(i);
 				i--;
 
