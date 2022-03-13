@@ -18,6 +18,22 @@ class Model
 	{
 		players = new ArrayList<Player>();
 		dbc = DBC;
+		
+		// Test Players
+		/*
+		Player p1 = new Player(1, "John", "Doe", "1");
+		players.add(p1);
+		Player p2 = new Player(2, "John", "Doe", "2");
+		players.add(p2);
+		Player p3 = new Player(3, "John", "Doe", "3");
+		players.add(p3);
+		Player p4 = new Player(4, "John", "Doe", "4");
+		players.add(p4);
+		Player p5 = new Player(5, "John", "Doe", "5");
+		players.add(p5);
+		Player p6 = new Player(6, "John", "Doe", "6");
+		players.add(p6);
+		*/
 	}
 	
 	// Method to add player object to list
@@ -27,11 +43,13 @@ class Model
 		players.add(p);
 		
 		// Testing contents
-		//for(int i = 0; i < players.size(); i++)
-		//{
-		//	Player n = players.get(i);
-		//	System.out.println(n.first_name);
-		//}
+		/*
+		for(int i = 0; i < players.size(); i++)
+		{
+			Player n = players.get(i);
+			System.out.println(n.first_name);
+		}
+		*/
 	}
 	
 	// Set database connection

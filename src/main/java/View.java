@@ -34,7 +34,7 @@ class View extends JPanel
 		
 		// Output text
 		JPanel outputPanel = new JPanel();
-		final JLabel outputLabel = new JLabel("Output text.");
+		JLabel outputLabel = new JLabel("Output text.");
 		outputPanel.add(outputLabel);
 		super.add(outputPanel, constraints);
 		
@@ -43,7 +43,7 @@ class View extends JPanel
 		JPanel idPanel = new JPanel();
 		JLabel idLabel = new JLabel("ID:");
 		idPanel.add(idLabel);
-		final JTextField idField = new JTextField(20);
+		JTextField idField = new JTextField(20);
 		idPanel.add(idField);
 		super.add(idPanel, constraints);
 		
@@ -52,7 +52,7 @@ class View extends JPanel
 		JPanel fnPanel = new JPanel();
 		JLabel fnLabel = new JLabel("First Name:");
 		fnPanel.add(fnLabel);
-		final JTextField fnField = new JTextField(20);
+		JTextField fnField = new JTextField(20);
 		fnPanel.add(fnField);
 		super.add(fnPanel, constraints);
 		
@@ -61,7 +61,7 @@ class View extends JPanel
 		JPanel lnPanel = new JPanel();
 		JLabel lnLabel = new JLabel("Last Name:");
 		lnPanel.add(lnLabel);
-		final JTextField lnField = new JTextField(20);
+		JTextField lnField = new JTextField(20);
 		lnPanel.add(lnField);
 		super.add(lnPanel, constraints);
 		
@@ -70,7 +70,7 @@ class View extends JPanel
 		JPanel cnPanel = new JPanel();
 		JLabel cnLabel = new JLabel("Codename:");
 		cnPanel.add(cnLabel);
-		final JTextField cnField = new JTextField(20);
+		JTextField cnField = new JTextField(20);
 		cnPanel.add(cnField);
 		super.add(cnPanel, constraints);
 		
@@ -102,6 +102,12 @@ class View extends JPanel
 				}
 				else
 					outputLabel.setText("Invalid input");
+					
+				// Clears text fields
+				idField.setText("");
+				fnField.setText("");
+				lnField.setText("");
+				cnField.setText("");
 			}
 		});
 		entryPanel.add(playerb);
@@ -121,12 +127,127 @@ class View extends JPanel
 		});
 		uploadPanel.add(uploadb);
 		super.add(uploadPanel, constraints);
-	}
-	
-	// TODO: Close player selection GUI
-	public void closeSelectionGUI()
-	{
 		
+		// Start game button TODO: REMOVE START GAME BUTTON WITH IMPLEMENTATION OF f5!
+		constraints.gridy = 7;
+		JPanel startPanel = new JPanel();
+		JButton startGame = new JButton("Start Game!");  
+		startGame.addActionListener(new ActionListener()
+		{
+			// Confirm all players have been entered and start game
+			public void actionPerformed(ActionEvent e)
+			{
+				actionDisplayGUI();
+			}
+		});
+		startPanel.add(startGame);
+		super.add(startPanel, constraints);
+	}
+
+
+	
+	// Action display GUI
+	public void actionDisplayGUI()
+	{
+		// Removes all the components from container
+		super.removeAll();
+
+		super.validate();
+
+		GridBagConstraints constraints = new GridBagConstraints();
+		constraints.anchor = GridBagConstraints.WEST;
+		constraints.insets = new Insets(10, 10, 10, 10);
+		constraints.gridx = 0;
+		constraints.gridy = 0;
+		super.setLayout(new GridBagLayout());
+
+		// Create countdown timer
+		Countdown countdown = new Countdown();
+		JPanel countdownPanel = new JPanel();
+		JLabel countdownLabel = new JLabel("COUNTDOWN TIMER");
+		countdown.time(390, countdownLabel);
+		countdownPanel.add(countdownLabel);
+		super.add(countdownPanel, constraints);
+
+		// Team 1 text
+		constraints.gridy = 1;
+		JPanel team1Panel = new JPanel();
+		JLabel team1Label = new JLabel("TEAM 1");
+		team1Panel.add(team1Label);
+		super.add(team1Panel, constraints);
+
+		// Team 2 text
+		constraints.gridx = 6;
+		JPanel team2Panel = new JPanel();
+		JLabel team2Label = new JLabel("TEAM 2");
+		team2Panel.add(team2Label);
+		super.add(team2Panel, constraints);
+
+		// Player 1 text
+		if(model.players.size() >= 1)
+		{
+			constraints.gridy = 1;
+			constraints.gridx = 0;
+			JPanel player1Panel = new JPanel();
+			JLabel player1Label = new JLabel(model.players.get(0).code_name.toString());
+			player1Panel.add(player1Label);
+			super.add(player1Panel, constraints);
+		}
+
+		// Player 2 text
+		if(model.players.size() >= 2)
+		{
+			constraints.gridy = 1;
+			constraints.gridx = 6;
+			JPanel player2Panel = new JPanel();
+			JLabel player2Label = new JLabel(model.players.get(1).code_name.toString());
+			player2Panel.add(player2Label);
+			super.add(player2Panel, constraints);
+		}
+
+		// Player 3 text
+		if(model.players.size() >= 3)
+		{
+			constraints.gridy = 2;
+			constraints.gridx = 0;
+			JPanel player3Panel = new JPanel();
+			JLabel player3Label = new JLabel(model.players.get(2).code_name.toString());
+			player3Panel.add(player3Label);
+			super.add(player3Panel, constraints);
+		}
+
+		// Player 4 text
+		if(model.players.size() >= 4)
+		{
+			constraints.gridy = 2;
+			constraints.gridx = 6;
+			JPanel player4Panel = new JPanel();
+			JLabel player4Label = new JLabel(model.players.get(3).code_name.toString());
+			player4Panel.add(player4Label);
+			super.add(player4Panel, constraints);
+		}
+
+		// Player 5 text
+		if(model.players.size() >= 5)
+		{
+			constraints.gridy = 3;
+			constraints.gridx = 0;
+			JPanel player5Panel = new JPanel();
+			JLabel player5Label = new JLabel(model.players.get(4).code_name.toString());
+			player5Panel.add(player5Label);
+			super.add(player5Panel, constraints);
+		}
+
+		// Player 6 text
+		if(model.players.size() >= 6)
+		{
+			constraints.gridy = 3;
+			constraints.gridx = 6;
+			JPanel player6Panel = new JPanel();
+			JLabel player6Label = new JLabel(model.players.get(5).code_name.toString());
+			player6Panel.add(player6Label);
+			super.add(player6Panel, constraints);
+		}
 	}
 	
 	// Method to determine whether input can be parsed as integer
