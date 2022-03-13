@@ -39,7 +39,7 @@ class Controller implements MouseListener, KeyListener
 		//System.out.println(s);
 		if(s.equals("179"))
 		{
-			System.out.println("f5 is pressed.");
+//			System.out.println("f5 is pressed.");
 			view.actionDisplayGUI();
 		}
 		
