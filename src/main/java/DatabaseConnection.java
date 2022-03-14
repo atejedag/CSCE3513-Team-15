@@ -62,4 +62,56 @@ public class DatabaseConnection
 			System.out.println(ex.getMessage());
 		}
 	}
+
+	// Retrieve players into database
+	public String retrievePlayers(Connection conn, int desiredPlayer)
+	{
+		// Get a result set containing all data from test_table
+		try
+		{
+			Statement statement = conn.createStatement();
+			ResultSet results = statement.executeQuery("SELECT * FROM player");
+			int currentRow = 0;
+
+			while (results.next())
+			{
+				if (currentRow == desiredPlayer)
+				{
+					String codeName = results.getString(4);
+					//System.out.println("Fetching data by column index for row " + results.getRow() + " : " + codeName);
+					currentRow = 0;
+					return codeName;
+				}
+				currentRow++;
+			}
+		}
+		catch (SQLException e)
+		{
+			String empty = "";
+			return empty;
+		}
+
+		String empty = "";
+		return empty;
+	}
+
+	public int numRows(Connection conn)
+	{
+		try
+		{
+			Statement statement = conn.createStatement();
+			ResultSet results = statement.executeQuery("SELECT * FROM player");
+			int numRow = 0;
+			while (results.next())
+			{
+				numRow++;
+			}
+			return numRow;
+		}
+		catch (SQLException e)
+		{
+			
+		}
+		return 2;
+	}
 }

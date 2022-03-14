@@ -64,7 +64,21 @@ class Model
 		dbc.insertPlayers(players, conn);
 		//players.clear();
 	}
+
+	// Retrieve Player's code name by index based on row
+	public String modelPlayersRetrieve(int desiredPlayer)
+	{
+		String playerCodeName = dbc.retrievePlayers(conn, desiredPlayer);
+		return playerCodeName;
+	}
 	
+	// Find how many rows are in table and therefore the number of players
+	public int modelNumRows()
+	{
+		int numRows = dbc.numRows(conn);
+		return numRows;
+	}
+
 	// Method to update model 
 	public void update()
 	{

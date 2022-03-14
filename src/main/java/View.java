@@ -182,69 +182,69 @@ class View extends JPanel
 		JLabel team2Label = new JLabel("TEAM 2");
 		team2Panel.add(team2Label);
 		super.add(team2Panel, constraints);
-
+		
 		// Player 1 text
-		if(model.players.size() >= 1)
+		if(model.modelNumRows() >= 1)
 		{
-			constraints.gridy = 1;
+			constraints.gridy = 2;
 			constraints.gridx = 0;
 			JPanel player1Panel = new JPanel();
-			JLabel player1Label = new JLabel(model.players.get(0).code_name.toString());
+			JLabel player1Label = new JLabel(model.modelPlayersRetrieve(0));
 			player1Panel.add(player1Label);
 			super.add(player1Panel, constraints);
 		}
 
 		// Player 2 text
-		if(model.players.size() >= 2)
+		if(model.modelNumRows() >= 2)
 		{
-			constraints.gridy = 1;
+			constraints.gridy = 2;
 			constraints.gridx = 6;
 			JPanel player2Panel = new JPanel();
-			JLabel player2Label = new JLabel(model.players.get(1).code_name.toString());
+			JLabel player2Label = new JLabel(model.modelPlayersRetrieve(1));
 			player2Panel.add(player2Label);
 			super.add(player2Panel, constraints);
 		}
 
 		// Player 3 text
-		if(model.players.size() >= 3)
+		if(model.modelNumRows() >= 3)
 		{
-			constraints.gridy = 2;
+			constraints.gridy = 3;
 			constraints.gridx = 0;
 			JPanel player3Panel = new JPanel();
-			JLabel player3Label = new JLabel(model.players.get(2).code_name.toString());
+			JLabel player3Label = new JLabel(model.modelPlayersRetrieve(2));
 			player3Panel.add(player3Label);
 			super.add(player3Panel, constraints);
 		}
 
 		// Player 4 text
-		if(model.players.size() >= 4)
+		if(model.modelNumRows() >= 4)
 		{
-			constraints.gridy = 2;
+			constraints.gridy = 3;
 			constraints.gridx = 6;
 			JPanel player4Panel = new JPanel();
-			JLabel player4Label = new JLabel(model.players.get(3).code_name.toString());
+			JLabel player4Label = new JLabel(model.modelPlayersRetrieve(3));
 			player4Panel.add(player4Label);
 			super.add(player4Panel, constraints);
 		}
 
 		// Player 5 text
-		if(model.players.size() >= 5)
+		if(model.modelNumRows() >= 5)
 		{
-			constraints.gridy = 3;
+			constraints.gridy = 4;
 			constraints.gridx = 0;
 			JPanel player5Panel = new JPanel();
-			JLabel player5Label = new JLabel(model.players.get(4).code_name.toString());
+			JLabel player5Label = new JLabel(model.modelPlayersRetrieve(4));
 			player5Panel.add(player5Label);
 			super.add(player5Panel, constraints);
 		}
 
 		// Player 6 text
-		if(model.players.size() >= 6)
+		if(model.modelNumRows() >= 6)
 		{
-			constraints.gridy = 3;
+			constraints.gridy = 4;
 			constraints.gridx = 6;
 			JPanel player6Panel = new JPanel();
-			JLabel player6Label = new JLabel(model.players.get(5).code_name.toString());
+			JLabel player6Label = new JLabel(model.modelPlayersRetrieve(5));
 			player6Panel.add(player6Label);
 			super.add(player6Panel, constraints);
 		}
@@ -279,8 +279,5 @@ class View extends JPanel
 		// Set background color
 		g.setColor(new Color(50, 50, 50));
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
-		
-		// Player selection GUI
-		// TODO: Handle switching screens
 	}
 }
