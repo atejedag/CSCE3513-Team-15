@@ -37,10 +37,15 @@ class Controller implements MouseListener, KeyListener
 		s = s.substring(s.indexOf("rawCode="));
 		s = s.substring(8, s.indexOf(","));
 		//System.out.println(s);
-		if(s.equals("179"))
+		if(s.equals("179"))//How to get it to work on mine computer.
 		{
 //			System.out.println("f5 is pressed.");
 			view.actionDisplayGUI();
+		}
+//		System.out.println(e.toString());
+		switch(e.getKeyCode())//Seems to get it to work on others.
+		{
+			case KeyEvent.VK_F5: view.actionDisplayGUI(); break;
 		}
 		
 	}
