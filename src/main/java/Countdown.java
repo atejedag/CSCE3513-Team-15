@@ -12,7 +12,7 @@ public class Countdown {
 		
 	}
 	
-	public void time(int N, JLabel J){ // N seconds, J for JLabel that's modified
+	public void time(final int N, final JLabel J){ // N seconds, J for JLabel that's modified
 		timer.scheduleAtFixedRate(new TimerTask(){
 			int i = N; // set time
 			public void run() {
