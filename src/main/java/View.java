@@ -34,7 +34,7 @@ class View extends JPanel
 		
 		// Output text
 		JPanel outputPanel = new JPanel();
-		JLabel outputLabel = new JLabel("Output text.");
+		final JLabel outputLabel = new JLabel("Output text.");
 		outputPanel.add(outputLabel);
 		super.add(outputPanel, constraints);
 		
@@ -43,7 +43,7 @@ class View extends JPanel
 		JPanel idPanel = new JPanel();
 		JLabel idLabel = new JLabel("ID:");
 		idPanel.add(idLabel);
-		JTextField idField = new JTextField(20);
+		final JTextField idField = new JTextField(20);
 		idPanel.add(idField);
 		super.add(idPanel, constraints);
 		
@@ -52,7 +52,7 @@ class View extends JPanel
 		JPanel fnPanel = new JPanel();
 		JLabel fnLabel = new JLabel("First Name:");
 		fnPanel.add(fnLabel);
-		JTextField fnField = new JTextField(20);
+		final JTextField fnField = new JTextField(20);
 		fnPanel.add(fnField);
 		super.add(fnPanel, constraints);
 		
@@ -61,7 +61,7 @@ class View extends JPanel
 		JPanel lnPanel = new JPanel();
 		JLabel lnLabel = new JLabel("Last Name:");
 		lnPanel.add(lnLabel);
-		JTextField lnField = new JTextField(20);
+		final JTextField lnField = new JTextField(20);
 		lnPanel.add(lnField);
 		super.add(lnPanel, constraints);
 		
@@ -70,7 +70,7 @@ class View extends JPanel
 		JPanel cnPanel = new JPanel();
 		JLabel cnLabel = new JLabel("Codename:");
 		cnPanel.add(cnLabel);
-		JTextField cnField = new JTextField(20);
+		final JTextField cnField = new JTextField(20);
 		cnPanel.add(cnField);
 		super.add(cnPanel, constraints);
 		
