@@ -248,6 +248,112 @@ class View extends JPanel
 			player6Panel.add(player6Label);
 			super.add(player6Panel, constraints);
 		}
+		
+		// Player 7 text
+		if(model.modelNumRows() >= 7)
+		{
+			constraints.gridy = 5;
+			constraints.gridx = 0;
+			JPanel player7Panel = new JPanel();
+			JLabel player7Label = new JLabel(model.modelPlayersRetrieve(6));
+			player7Panel.add(player7Label);
+			super.add(player7Panel, constraints);
+		}
+
+		// Player 8 text
+		if(model.modelNumRows() >= 8)
+		{
+			constraints.gridy = 5;
+			constraints.gridx = 6;
+			JPanel player8Panel = new JPanel();
+			JLabel player8Lanel = new JLabel(model.modelPlayersRetrieve(7));
+			player8Panel.add(player8Panel);
+			super.add(player8Panel, constraints);
+		}
+		// Player 9 text
+		if(model.modelNumRows() >= 9)
+		{
+			constraints.gridy = 6;
+			constraints.gridx = 0;
+			JPanel player9Panel = new JPanel();
+			JLabel player9Lable = new JLabel(model.modelPlayersRetrieve(8));
+			player9Panel.add(player9Panel);
+			super.add(player9Panel, constraints);
+		}
+
+		// Player 10 text
+		if(model.modelNumRows() >= 10)
+		{
+			constraints.gridy = 6;
+			constraints.gridx = 6;
+			JPanel player10Panel = new JPanel();
+			JLabel player10lABEL = new JLabel(model.modelPlayersRetrieve(9));
+			player10Panel.add(player10Panel);
+			super.add(player10Panel, constraints);
+		}
+		// Player 11 text
+		if(model.modelNumRows() >= 11)
+		{
+			constraints.gridy = 7;
+			constraints.gridx = 0;
+			JPanel player11Panel = new JPanel();
+			JLabel player11Label = new JLabel(model.modelPlayersRetrieve(10));
+			player11Panel.add(player11Label);
+			super.add(player11Panel, constraints);
+		}
+
+		// Player 12 text
+		if(model.modelNumRows() >= 12)
+		{
+			constraints.gridy = 7;
+			constraints.gridx = 6;
+			JPanel player12Panel = new JPanel();
+			JLabel player12Label = new JLabel(model.modelPlayersRetrieve(11));	
+			player12Panel.add(player12Label);
+			super.add(player12Panel, constraints);
+		}
+		// Player 13 text
+		if(model.modelNumRows() >= 13)
+		{
+			constraints.gridy = 8;
+			constraints.gridx = 0;
+			JPanel player13Panel = new JPanel();
+			JLabel player13Label = new JLabel(model.modelPlayersRetrieve(12));
+			player13Panel.add(player13Label);
+			super.add(player13Panel, constraints);
+		}
+
+		// Player 14 text
+		if(model.modelNumRows() >= 14)
+		{
+			constraints.gridy = 8;
+			constraints.gridx = 6;
+			JPanel player14Panel = new JPanel();
+			JLabel player14Label = new JLabel(model.modelPlayersRetrieve(13));
+			player14Panel.add(player14Label);
+			super.add(player14Panel, constraints);
+		}
+		// Player 15 text
+		if(model.modelNumRows() >= 15)
+		{
+			constraints.gridy = 9;
+			constraints.gridx = 0;
+			JPanel player15Panel = new JPanel();
+			JLabel player15Label = new JLabel(model.modelPlayersRetrieve(14));
+			player15Panel.add(player15Label);
+			super.add(player15Panel, constraints);
+		}
+
+		// Player 16 text
+		if(model.modelNumRows() >= 16)	
+		{
+			constraints.gridy = 9;
+			constraints.gridx = 6;
+			JPanel player16Panel = new JPanel();
+			JLabel player16Label = new JLabel(model.modelPlayersRetrieve(15));
+			player16Panel.add(player16Label);
+			super.add(player16Panel, constraints);
+		}
 	}
 	
 	// Method to determine whether input can be parsed as integer
