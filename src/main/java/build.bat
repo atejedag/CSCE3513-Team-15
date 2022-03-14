@@ -5,4 +5,5 @@ if %errorlevel% neq 0 (
 ) else (
 	echo Compiled correctly! Running program...
 	java -cp .;postgresql-42.3.3.jar LaserTagSystem
+	del *.class
 )
