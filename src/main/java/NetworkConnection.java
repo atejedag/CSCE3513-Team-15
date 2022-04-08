@@ -7,12 +7,18 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
+import java.net.UnknownHostException;
 
 public class NetworkConnection
 {
-	public NetworkConnection()
+	DatagramSocket ds;
+	InetAddress ip;
+	public NetworkConnection() throws SocketException, UnknownHostException
 	{
 		// Create a socket to listen for traffic
+		ds = new DatagramSocket();
+		ip = InetAddress.getLocalHost();
+		
 	}
 	
 	// Call this method in the LaserTagSystem run method to listen for traffic.
