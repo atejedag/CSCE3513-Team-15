@@ -53,7 +53,12 @@ public class NetworkConnection
 		StringBuilder builder = new StringBuilder();
 		
 		// Read over array with while loop and add characters to builder
-		
+		int i = 0;
+		while (a[i] != 0)
+		{
+			builder.append((char) a[i]);
+			i++;
+		}
 		return builder;
 	}
 }
