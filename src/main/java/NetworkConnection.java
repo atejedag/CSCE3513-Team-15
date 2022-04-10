@@ -19,6 +19,9 @@ public class NetworkConnection
 		ds = new DatagramSocket();
 		ip = InetAddress.getLocalHost();
 		
+		byte[] receive = new byte[65535];
+		DatagramPacket DpReceive = null;
+		
 	}
 	
 	// Call this method in the LaserTagSystem run method to listen for traffic.
@@ -28,7 +31,10 @@ public class NetworkConnection
 	public void receiveTraffic()	// might need to throw IOException
 	{
 		// Create a DatagramPacket to receive data
+		DpReceive = new DatagramPacket(receive, receive.length);
 		
+		ds.receive(DpReceive);
+		System.out.println("Client:-"+data(receive));
 		// Receive DatagramPacket in socket
 		//		This is where we will probably DO something with the transmission.
 		//		The data method below can be used to convert the packet into string format.
@@ -40,8 +46,13 @@ public class NetworkConnection
 		//			the information straight to some new JLabels next to the relevant player name.
 		
 		// Exit server if client sends "bye" message
-		
+		if (data(receive.toString().equals("bye"))
+		{
+	        	System.out.println("Client sent bye...exiting");
+			// insert break?
+		}
 		// Clear the buffer
+		receive = new byte[65535];
 	}
 	
 	// Convert byte array data into string format
