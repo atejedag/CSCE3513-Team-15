@@ -11,16 +11,17 @@ import java.net.UnknownHostException;
 
 public class NetworkConnection
 {
+	DatagramPacket DpReceive;
+	byte[] receive;
 	DatagramSocket ds;
-	InetAddress ip;
 	public NetworkConnection() throws SocketException, UnknownHostException
 	{
 		// Create a socket to listen for traffic
-		ds = new DatagramSocket();
-		ip = InetAddress.getLocalHost();
+		try { ds = new DatagramSocket(1234); } // number should match port in traffic generator
+		catch (SocketException e) { e.printStackTrace(); }
 		
-		byte[] receive = new byte[65535];
-		DatagramPacket DpReceive = null;
+		receive = new byte[65535];
+		DpReceive = null;
 		
 	}
 	
@@ -33,7 +34,9 @@ public class NetworkConnection
 		// Create a DatagramPacket to receive data
 		DpReceive = new DatagramPacket(receive, receive.length);
 		
+		// Receive DatagramPacket in socket
 		ds.receive(DpReceive);
+		// print stuff from generator to console for debugging purposes
 		System.out.println("Client:-"+data(receive));
 		// Receive DatagramPacket in socket
 		//		This is where we will probably DO something with the transmission.
@@ -45,12 +48,9 @@ public class NetworkConnection
 		//			list of players ~ probably with more Heroku shenanigans. OR, we could just send
 		//			the information straight to some new JLabels next to the relevant player name.
 		
-		// Exit server if client sends "bye" message
-		if (data(receive.toString().equals("bye"))
-		{
-	        	System.out.println("Client sent bye...exiting");
-			// insert break?
-		}
+		
+		// possibly need exit?
+		
 		// Clear the buffer
 		receive = new byte[65535];
 	}
