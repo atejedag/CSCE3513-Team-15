@@ -17,7 +17,7 @@ public class NetworkConnection
 	public NetworkConnection()
 	{
 		// Create a socket to listen for traffic
-		try { ds = new DatagramSocket(1234); } // number should match port in traffic generator
+		try { ds = new DatagramSocket(7501); } // number should match port in traffic generator
 		catch (SocketException e) { e.printStackTrace(); }
 		
 		receive = new byte[65535];
