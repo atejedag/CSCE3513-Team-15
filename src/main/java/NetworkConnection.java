@@ -14,7 +14,7 @@ public class NetworkConnection
 	DatagramPacket DpReceive;
 	byte[] receive;
 	DatagramSocket ds;
-	public NetworkConnection() throws SocketException, UnknownHostException
+	public NetworkConnection()
 	{
 		// Create a socket to listen for traffic
 		try { ds = new DatagramSocket(1234); } // number should match port in traffic generator
