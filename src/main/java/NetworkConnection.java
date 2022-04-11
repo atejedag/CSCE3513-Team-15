@@ -29,7 +29,7 @@ public class NetworkConnection
 	//		* It's possible the "go to sleep component" of the run loop might interfere with the reception of 
 	//		traffic. If that happens, we might either remove that component or add a new method with a while 
 	// 		loop to call the method. 
-	public void receiveTraffic()	// might need to throw IOException
+	public void receiveTraffic() throws IOException	// might need to throw IOException
 	{
 		// Create a DatagramPacket to receive data
 		DpReceive = new DatagramPacket(receive, receive.length);
