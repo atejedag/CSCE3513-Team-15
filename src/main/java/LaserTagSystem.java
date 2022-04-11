@@ -5,6 +5,8 @@
 import javax.swing.JFrame;
 import java.awt.Toolkit;
 import java.sql.Connection;
+import java.io.IOException;
+import java.net.SocketException;
 
 public class LaserTagSystem extends JFrame
 {
