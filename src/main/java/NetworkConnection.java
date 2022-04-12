@@ -15,7 +15,7 @@ public class NetworkConnection
 	byte[] receive;
 	DatagramSocket ds;
 	View view;
-	public NetworkConnection(View v))
+	public NetworkConnection(View v);
 	{
 		view = v;
 		// Create a socket to listen for traffic
