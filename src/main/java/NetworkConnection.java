@@ -14,8 +14,10 @@ public class NetworkConnection
 	DatagramPacket DpReceive;
 	byte[] receive;
 	DatagramSocket ds;
-	public NetworkConnection()
+	View view;
+	public NetworkConnection(View v))
 	{
+		view = v;
 		// Create a socket to listen for traffic
 		try { ds = new DatagramSocket(7501); } // number should match port in traffic generator
 		catch (SocketException e) { e.printStackTrace(); }
@@ -50,7 +52,8 @@ public class NetworkConnection
 		
 		
 		// possibly need exit?
-		
+		view.liveUpdateDisplayGUI(data(receive).toString());
+
 		// Clear the buffer
 		receive = new byte[65535];
 	}
@@ -71,5 +74,12 @@ public class NetworkConnection
 			i++;
 		}
 		return builder;
+	}
+	public void update(){
+		try { receiveTraffic(); } 
+		catch (IOException e) { e.printStackTrace(); }
+	
+	
+		
 	}
 }
