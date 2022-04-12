@@ -15,7 +15,7 @@ public class LaserTagSystem extends JFrame
 	static Model model = new Model(dbc);
 	static Controller controller = new Controller(model);
 	static View view = new View(controller, model);
-	static NetworkConnection netcon = new NetworkConnection();
+	static NetworkConnection netcon = new NetworkConnection(view);
 	
 	// Constructor
 	public LaserTagSystem()
@@ -36,9 +36,7 @@ public class LaserTagSystem extends JFrame
 		while(true)
 		{
 			controller.update();
-			// try catch required for some reason, not sure which place to go in this order so just left here
-			try { netcon.receiveTraffic(); } 
-			catch (IOException e) { e.printStackTrace(); }
+			netcon.update();
 			model.update();
 			view.repaint();
 			Toolkit.getDefaultToolkit().sync(); // update screen
