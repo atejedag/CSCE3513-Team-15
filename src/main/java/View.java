@@ -11,6 +11,14 @@ class View extends JPanel
 {
 	// Class members
 	Model model;
+	static int score1 = 0;
+	static int score2 = 0;
+	boolean createLiveAction = false;
+	static JPanel team1ScorePanel = new JPanel();
+	static JPanel team2ScorePanel = new JPanel();
+	static JLabel team1ScoreLabel = new JLabel("score: ");
+	static JLabel team2ScoreLabel = new JLabel("score: ");
+	
 	
 	// Constructor
 	View(Controller c, Model m)
@@ -137,6 +145,7 @@ class View extends JPanel
 			// Confirm all players have been entered and start game
 			public void actionPerformed(ActionEvent e)
 			{
+				createLiveAction = true;
 				actionDisplayGUI();
 			}
 		});
@@ -356,6 +365,48 @@ class View extends JPanel
 		}
 	}
 	
+	public void liveUpdateDisplayGUI(String dataRecived){
+		
+		if(createLiveAction == true)
+		{
+			score1 = score1 + Integer.parseInt(String.valueOf(dataRecived.charAt(0)));
+			score2 = score2 + Integer.parseInt(String.valueOf(dataRecived.charAt(2)));
+			GridBagConstraints constraints = new GridBagConstraints();
+			constraints.anchor = GridBagConstraints.WEST;
+			constraints.insets = new Insets(10, 10, 10, 10);
+
+			// Team 1 score
+			constraints.gridx = -1;
+			constraints.gridy = 10;
+			team1ScorePanel.add(team1ScoreLabel);
+			super.add(team1ScorePanel, constraints);
+		
+			// Team 2 score
+			constraints.gridx = 6;
+			constraints.gridy = 10;;
+			team2ScorePanel.add(team2ScoreLabel);
+			super.add(team2ScorePanel, constraints);
+			
+			//change team score labels	
+			team1ScoreLabel.setText("Score: "  + score1 + "   Most recent score: " + String.valueOf(dataRecived.charAt(0)));
+			team2ScoreLabel.setText("Score: "  + score2 + "   Most recent score: " + String.valueOf(dataRecived.charAt(2)));
+		
+			//set color to team color or white if tied
+			if(score1 > score2)
+			{
+			team2ScorePanel.setBackground(Color.white);
+				team1ScorePanel.setBackground(Color.red);
+			}
+			else if(score2 > score1)
+			{
+				team1ScorePanel.setBackground(Color.white);
+				team2ScorePanel.setBackground(Color.green);
+			}else{
+				team1ScorePanel.setBackground(Color.white);
+				team2ScorePanel.setBackground(Color.white);
+			}
+		}
+	}
 	// Method to determine whether input can be parsed as integer
 	public boolean canParse(String statement)
 	{
