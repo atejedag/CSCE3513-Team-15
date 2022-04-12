@@ -1,5 +1,5 @@
 @echo off
-javac LaserTagSystem.java Splash.java Model.java View.java Controller.java Player.java DatabaseConnection.java
+javac LaserTagSystem.java Splash.java Model.java View.java Controller.java Player.java DatabaseConnection.java NetworkConnection.java
 if %errorlevel% neq 0 (
 	echo There was an error. Exiting now. 
 ) else (
