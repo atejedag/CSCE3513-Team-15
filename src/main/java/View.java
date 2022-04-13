@@ -160,7 +160,7 @@ class View extends JPanel
 	{
 		// Removes all the components from container
 		super.removeAll();
-
+		super.repaint();
 		super.validate();
 
 		GridBagConstraints constraints = new GridBagConstraints();

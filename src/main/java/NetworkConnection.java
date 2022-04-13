@@ -76,6 +76,7 @@ public class NetworkConnection
 		return builder;
 	}
 	public void update(){
+		System.out.println("NetworkConnection.update Entered!");
 		try { receiveTraffic(); } 
 		catch (IOException e) { e.printStackTrace(); }
 	
