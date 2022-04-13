@@ -397,7 +397,7 @@ class View extends JPanel
 			team2ScoreLabel.setText("Score: "  + score2 + "   Most recent score: " + String.valueOf(dataRecived.charAt(2)));
 		
 			//set color to team color or white if tied
-			makeScoreFlash();
+			//makeScoreFlash();
 		}
 	}
 	
@@ -472,5 +472,6 @@ class View extends JPanel
 		// Set background color
 		g.setColor(new Color(50, 50, 50));
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
+		makeScoreFlash();
 	}
 }
