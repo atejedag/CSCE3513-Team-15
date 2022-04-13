@@ -6,6 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 class View extends JPanel
 {
@@ -13,11 +16,13 @@ class View extends JPanel
 	Model model;
 	static int score1 = 0;
 	static int score2 = 0;
+	int counter = 0;
 	boolean createLiveAction = false;
 	static JPanel team1ScorePanel = new JPanel();
 	static JPanel team2ScorePanel = new JPanel();
 	static JLabel team1ScoreLabel = new JLabel("score: ");
 	static JLabel team2ScoreLabel = new JLabel("score: ");
+	final ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
 	
 	
 	// Constructor
@@ -392,21 +397,52 @@ class View extends JPanel
 			team2ScoreLabel.setText("Score: "  + score2 + "   Most recent score: " + String.valueOf(dataRecived.charAt(2)));
 		
 			//set color to team color or white if tied
-			if(score1 > score2)
-			{
-			team2ScorePanel.setBackground(Color.white);
-				team1ScorePanel.setBackground(Color.red);
-			}
-			else if(score2 > score1)
-			{
-				team1ScorePanel.setBackground(Color.white);
-				team2ScorePanel.setBackground(Color.green);
-			}else{
-				team1ScorePanel.setBackground(Color.white);
-				team2ScorePanel.setBackground(Color.white);
-			}
+			makeScoreFlash();
 		}
 	}
+	
+	// Method to cause score to flash
+	void makeScoreFlash()
+	{
+		ses.scheduleWithFixedDelay(new Runnable() {
+				@Override
+				public void run() {
+					counter += 1;
+					if(score1 > score2)
+					{
+						if((counter % 2) == 0)
+						{
+							team1ScorePanel.setBackground(Color.red);
+							team2ScorePanel.setBackground(Color.white);
+						}
+						else
+						{
+							team1ScorePanel.setBackground(Color.black);
+							team2ScorePanel.setBackground(Color.white);
+						}
+					}
+					else if(score2 > score1)
+					{
+						if((counter % 2) == 0)
+						{
+							team2ScorePanel.setBackground(Color.green);
+							team1ScorePanel.setBackground(Color.white);
+						}
+						else
+						{
+							team2ScorePanel.setBackground(Color.black);
+							team1ScorePanel.setBackground(Color.white);
+						}
+					}
+					else
+					{
+						team1ScorePanel.setBackground(Color.white);
+						team2ScorePanel.setBackground(Color.white);
+					}
+				}
+		}, 0, 500, TimeUnit.MILLISECONDS);
+	}
+	
 	// Method to determine whether input can be parsed as integer
 	public boolean canParse(String statement)
 	{
